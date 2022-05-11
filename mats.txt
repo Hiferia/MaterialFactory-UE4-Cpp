@@ -1,0 +1,5 @@
+Material_01 Specular 1 Metallic 0.5 Texture 0
+Material_02 Color 255 255 255 Roughness 1 Specular 1 Metallic 1
+Material_03 Color 255 255 0 Roughness 0 Specular 0.5 Metallic 0.5
+Material_04 Roughness 1 Texture 1
+Material_05 Color 255 0 255 Roughness 0.2
