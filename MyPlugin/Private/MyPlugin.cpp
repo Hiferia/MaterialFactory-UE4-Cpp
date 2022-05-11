@@ -161,9 +161,9 @@ bool FMyPluginModule::Exec(UWorld* InWorld, const TCHAR* Cmd, FOutputDevice& Ar)
 TArray<UObject*> FMyPluginModule::ImportAsset(const TArray<FString>& Files)
 {
 	UAutomatedAssetImportData* NewTexture = NewObject<UAutomatedAssetImportData>();
-	NewTexture->bReplaceExisting = true; //Replace old with new
 	NewTexture->DestinationPath = TEXT("/Game/Assets/Textures");
 	NewTexture->Filenames = Files;
+	NewTexture->bReplaceExisting = true;
 
 	FAssetToolsModule& AssetTools = FModuleManager::GetModuleChecked<FAssetToolsModule>("AssetTools");
 	TArray<UObject*>ImportedAssets = AssetTools.Get().ImportAssetsAutomated(NewTexture);
@@ -176,7 +176,6 @@ TArray<UObject*> FMyPluginModule::ImportAsset(const TArray<FString>& Files)
 		UPackage::SavePackage(Package, Obj, RF_Public | RF_Standalone, *FileName);
 		FAssetRegistryModule::AssetCreated(Obj);
 	}
-
 	return ImportedAssets;
 }
 
