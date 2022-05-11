@@ -31,51 +31,6 @@ void FMyPluginModule::ShutdownModule()
 	// This function may be called during shutdown to clean up your module.  For modules that support dynamic reloading,
 	// we call this function before unloading the module.
 }
-//bool FMyPluginModule::Exec(UWorld* InWorld, const TCHAR* Cmd, FOutputDevice& Ar)
-//{
-//	if (FParse::Command(&Cmd, TEXT("newmaterial")))
-//	{
-//		UMaterialFactoryNew* NewMaterial = NewObject<UMaterialFactoryNew>();
-//		// in "prod": controllare che asset non esista...
-//
-//		uint64 SuffixAssetName = FPlatformTime::Cycles64();
-//		FString AssetName = FString::Printf(TEXT("M_Dummy_%llu"), SuffixAssetName);
-//		UPackage* Package = CreatePackage(*FString::Printf(TEXT("/Game/%s"), *AssetName));
-//
-//		UObject* NewMaterialObject = NewMaterial->FactoryCreateNew(NewMaterial->SupportedClass, Package, *AssetName, EObjectFlags::RF_Standalone | EObjectFlags::RF_Public, nullptr, GWarn);
-//		FAssetRegistryModule::AssetCreated(NewMaterialObject);
-//
-//		UMaterial* MaterialCasted = Cast<UMaterial>(NewMaterialObject);
-//
-//		//Inizio modifiche
-//		MaterialCasted->Modify();
-//
-//		UMaterialExpressionVectorParameter* VectorParameter = NewObject<UMaterialExpressionVectorParameter>(MaterialCasted);
-//		VectorParameter->DefaultValue = FLinearColor::Blue;
-//		VectorParameter->ParameterName = TEXT("BAseColorBlue");
-//		VectorParameter->MaterialExpressionEditorX = -400;
-//
-//		UMaterialExpressionMultiply* MaterialMultiplier = NewObject<UMaterialExpressionMultiply>(MaterialCasted);
-//		MaterialMultiplier->A.Expression = VectorParameter;
-//		MaterialMultiplier->ConstB = 2;
-//		MaterialMultiplier->MaterialExpressionEditorX = -200;
-//
-//		MaterialCasted->BaseColor.Expression = VectorParameter; //Collegamento dei nodi
-//		MaterialCasted->Expressions.Add(MaterialMultiplier);
-//		MaterialCasted->Expressions.Add(VectorParameter);		//
-//
-//
-//
-//
-//		MaterialCasted->PostEditChange();
-//		MaterialCasted->MarkPackageDirty();
-//		//fine modifiche
-//		GEditor->GetEditorSubsystem<UAssetEditorSubsystem>()->OpenEditorForAsset(MaterialCasted);
-//
-//		return true;
-//	}
-//	return false;
-//}
 
 bool FMyPluginModule::Exec(UWorld* InWorld, const TCHAR* Cmd, FOutputDevice& Ar)
 {
